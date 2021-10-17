@@ -10,18 +10,18 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
-        //need email validator 
+        unique: true,
+        match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
     },
     thoughts: [
         {
-            type: Schema.Types.objectId,
+            type: Schema.Types.ObjectId,
             ref: 'Thought'
         }
     ],
     friends: [
         {
-            type: Schema.Types.objectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         }
     ]

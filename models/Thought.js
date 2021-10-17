@@ -1,22 +1,23 @@
 const { Schema, model } = require('mongoose');
 
 const reactionSchema = new Schema({
-    reacitonId: {
+    //reactionId: {
 
-    },
-    reactionBody: {
-        type: String,
-        required: true,
-        maxLength: 280
-    },
+    //},
+    // reactionBody: {
+    //     type: String,
+    //     required: true,
+    //     maxLength: 280
+    // },
     username: {
         type: String,
         required: true
     },
     createdAt: {
-        type: Date,
-        default: Date.now
-        //default format getter
+        type: String,
+        default: new Date().toISOString()//Date.now,
+        // get: timeStamp => dateFormat(timeStamp)
+        // default format getter
     }
     },
     {
@@ -26,17 +27,17 @@ const reactionSchema = new Schema({
     }
 );
 
-const thoughtSchema = new Schema({
+const ThoughtSchema = new Schema({
     thoughtText: {
         type: String,
         required: true,
         minLength: 1,
         maxLength: 280
     },
-    createdAt: {
-        createdAt: Date,
-        default: Date.now
-    },
+    // createdAt: {
+    //     createdAt: Date,
+    //     default: Date.now
+    // },
     username: {
         type: String,
         required: true
@@ -49,7 +50,7 @@ ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
   });
 
-  const Thought = model('User', thoughtSchema);
+  const Thought = model('Thought', ThoughtSchema);
 
 
   module.exports = Thought;
