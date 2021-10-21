@@ -81,11 +81,11 @@ const thoughtController = {
     //DELETE reaction to a thought
     removeReaction({ params }, res) {
         Thought.findOneAndUpdate(
-          { _id: params.ThoughtId },
+          { _id: params.thoughtId },
           { $pull: { reactions: { reactionId: params.reactionId } } },
           { new: true }
         )
-          .then(dbUserData => res.json(dbUserData))
+          .then(dbThoughtData => res.json(dbThoughtData))
           .catch(err => res.json(err));
       },
 
@@ -103,14 +103,12 @@ const thoughtController = {
             { new: true }
             );
         })
-
         .then(dbUserData => {
           
             if (!dbUserData) {
             res.status(202).json({ message: 'Deleted!' });
             return;
             }
-     
         })
         .catch(err => res.json(err));
     },
