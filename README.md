@@ -11,10 +11,7 @@ Users can add other users as friends to their friend list, and interact with eac
 Finally, users, thoughts, reactions, and friends can all be deleted from the database.
 
 ## Demonstration
-The below video shows the API routes in action using Insomnia Core.
-
-![alt=demo-walkthrough](./Assets/social-network-api-demonstration.webm)
-
+The below videos show the API routes in action using Insomnia Core.
 
 Here is a demo video of the User functionality:
 https://user-images.githubusercontent.com/85508030/138306070-addf38a0-fb82-466a-bec7-ee5a8d1660a1.mp4
